@@ -1,8 +1,14 @@
 package com.cloud.project.antonin.kylian.housing.publication.persistence;
 
+import jakarta.persistence.*;
+
 import java.util.Set;
 
+@Entity
+@Table(name = "Housings")
 public class HousingDataMapper {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long housingId;
 
     private String title;
@@ -15,12 +21,20 @@ public class HousingDataMapper {
 
     private int nbBedrooms;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cityId")
     private CityDataMapper city;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "typeId")
     private TypeDataMapper type;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ownerId")
     private OwnerDataMapper owner;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(joinColumns=@JoinColumn(name="housings_housing_id"))
     private Set<EquipmentDataMapper> equipments;
 
     private String status;

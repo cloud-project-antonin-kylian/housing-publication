@@ -1,6 +1,15 @@
 package com.cloud.project.antonin.kylian.housing.publication.persistence;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Owners")
 public class OwnerDataMapper {
+    @Id
+    @GeneratedValue
     private Long ownerId;
 
     private String name;

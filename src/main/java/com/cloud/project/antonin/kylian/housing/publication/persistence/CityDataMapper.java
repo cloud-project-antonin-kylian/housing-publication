@@ -1,10 +1,18 @@
 package com.cloud.project.antonin.kylian.housing.publication.persistence;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Cities")
 public class CityDataMapper {
+    @Id
+    @GeneratedValue
     private Long cityId;
 
     private String name;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "areaId")
     private AreaDataMapper area;
 
     public CityDataMapper(Long cityId, String name, AreaDataMapper area) {

@@ -1,16 +1,17 @@
 package com.cloud.project.antonin.kylian.housing.publication.persistence;
 
 import com.cloud.project.antonin.kylian.housing.publication.entity.*;
-import com.cloud.project.antonin.kylian.housing.publication.model.*;
+import com.cloud.project.antonin.kylian.housing.publication.model.HousingDbRequestModel;
+import com.cloud.project.antonin.kylian.housing.publication.model.HousingDbResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
-public class InMemoryHousing implements HousingRegisterDbGateway, HousingFetcherByStatusDbGateway, HousingValidatorDbGateway {
+public class JpaHousing implements HousingRegisterDbGateway, HousingFetcherByStatusDbGateway, HousingValidatorDbGateway {
     @Autowired
-    private InMemoryHousingRepository housingRepository;
+    private JpaHousingRepository housingRepository;
 
     @Override
     public List<HousingDbResponseModel> get(final String status) {
