@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "4eda42b2-356e-4163-8ef4-e35ffcea436d",
+		"name": "housing-publication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32401415"
+	},
+	"item": [
+		{
+			"name": "Add housing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"title\",\n    \"description\": \"description\",\n    \"price\": 100,\n    \"size\": 40,\n    \"nbBedrooms\": 1,\n    \"city\": {\n        \"id\": 1,\n        \"name\": \"name\",\n        \"area\": {\n            \"id\": 1,\n            \"name\": \"name\"\n        }\n    },\n    \"type\": {\n        \"id\": 1,\n        \"name\": \"name\"\n    },\n    \"owner\": {\n        \"id\": 1,\n        \"name\": \"name\"\n    },\n    \"equipments\": [\n        {\n            \"id\": 1,\n            \"name\": \"name\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/housings",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"housings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update housing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"title\",\n    \"description\": \"description\",\n    \"price\": 100,\n    \"size\": 40,\n    \"nbBedrooms\": 1,\n    \"city\": {\n        \"id\": 1,\n        \"name\": \"name\",\n        \"area\": {\n            \"id\": 1,\n            \"name\": \"name\"\n        }\n    },\n    \"type\": {\n        \"id\": 1,\n        \"name\": \"name\"\n    },\n    \"owner\": {\n        \"id\": 1,\n        \"name\": \"name\"\n    },\n    \"equipments\": [\n        {\n            \"id\": 1,\n            \"name\": \"name\"\n        }\n    ],\n    \"status\": \"ACCEPTED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/housings/{{housingId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"housings",
+						"{{housingId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get housings by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/housings?status={{status}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"housings"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "{{status}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://cloud-project.info:80/housing-publication",
+			"type": "string"
+		},
+		{
+			"key": "status",
+			"value": "WAITING",
+			"type": "string"
+		},
+		{
+			"key": "housingId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
